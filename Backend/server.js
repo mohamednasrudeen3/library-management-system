@@ -16,7 +16,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://library-management-system-re8rueu1v.vercel.app/',
+  origin: 'https://library-management-system-6o64j6gap.vercel.app/',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials:true,
 }));
