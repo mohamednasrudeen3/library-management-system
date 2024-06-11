@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import LogoutButton from '../components/Logoutbutton';
 const Dashboard = () => {
   const [report, setReport] = useState({
     loanCount: 0,
