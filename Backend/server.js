@@ -16,7 +16,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://library-management-system-m4n996x96.vercel.app',
+  origin: 'https://main--fastidious-pony-356a26.netlify.app/',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials:true,
 }));
