@@ -1,6 +1,6 @@
 // backend/routes/loanroutes.js
 const express = require('express');
-const { getLoans, addLoan, returnLoan, deleteLoan } = require('../controllers/loanController');
+const { getLoans, addLoan, returnLoan, deleteLoan } = require('../controllers/loancontroller');
 const router = express.Router();
 
 router.get('/', getLoans);
