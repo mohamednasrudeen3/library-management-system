@@ -18,6 +18,7 @@ const app = express();
 app.use(cors({
   origin: 'https://library-management-system-re8rueu1v.vercel.app/',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials:true,
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
