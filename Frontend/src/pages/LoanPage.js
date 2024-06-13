@@ -3,53 +3,46 @@ import axios from 'axios';
 import AddLoanForm from './AddLoanForm';
 
 const LoanPage = () => {
-  const [loans, setLoans] = useState([]); // Ensure it's initialized as an array
+  const [loans, setLoans] = useState([]);
   const [users, setUsers] = useState([]);
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true); // State to manage loading state
+  const [error, setError] = useState(null); // State to manage errors
 
   useEffect(() => {
-    fetchLoans();
-    fetchUsers();
-    fetchBooks();
+    fetchInitialData();
   }, []);
 
-  const fetchLoans = async () => {
-    try {
-      const { data } = await axios.get('/api/loans');
-      console.log(data); // Check the API response
-      setLoans(data);
-    } catch (error) {
-      console.error('Error fetching loans:', error);
-      setLoans([]); // Ensure loans is set to an array even in case of an error
-    }
-  };
+  const fetchInitialData = async () => {
+    setLoading(true);
+    setError(null);
 
-  const fetchUsers = async () => {
     try {
-      const { data } = await axios.get('/api/users');
-      setUsers(data);
-    } catch (error) {
-      console.error('Error fetching users:', error);
-    }
-  };
+      const [loansResponse, usersResponse, booksResponse] = await Promise.all([
+        axios.get('/api/loans'),
+        axios.get('/api/users'),
+        axios.get('/api/books')
+      ]);
 
-  const fetchBooks = async () => {
-    try {
-      const { data } = await axios.get('/api/books');
-      setBooks(data);
+      setLoans(loansResponse.data);
+      setUsers(usersResponse.data);
+      setBooks(booksResponse.data);
     } catch (error) {
-      console.error('Error fetching books:', error);
+      console.error('Error fetching initial data:', error);
+      setError('Failed to fetch data. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleLoanAdded = () => {
-    fetchLoans();
+    fetchInitialData(); // Refetch data after adding loan
   };
 
   const handleReturn = async (id) => {
     try {
       await axios.put(`/api/loans/return/${id}`);
-      fetchLoans();
+      fetchInitialData(); // Refetch data after returning loan
     } catch (error) {
       console.error('Error returning loan:', error);
     }
@@ -58,19 +51,27 @@ const LoanPage = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/api/loans/${id}`);
-      fetchLoans();
+      fetchInitialData(); // Refetch data after deleting loan
     } catch (error) {
       console.error('Error deleting loan:', error);
     }
   };
+
+  if (loading) {
+    return <p>Loading...</p>; // Render loading indicator while fetching data
+  }
+
+  if (error) {
+    return <p>{error}</p>; // Render error message if fetching data fails
+  }
 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Loans</h1>
       <AddLoanForm users={users} books={books} onLoanAdded={handleLoanAdded} />
       <ul className="space-y-4">
-        {Array.isArray(loans) && loans.length > 0 ? (
-          loans.map(loan => (
+        {loans.length > 0 ? (
+          loans.map((loan) => (
             <li key={loan._id} className="bg-white shadow rounded-lg p-4">
               <div>
                 <strong>Book:</strong> {loan.book ? loan.book.title : 'N/A'}
