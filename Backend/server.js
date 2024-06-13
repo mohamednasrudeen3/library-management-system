@@ -16,7 +16,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://666ad8407e87bb000858564b--lustrous-kitten-c7214d.netlify.app/',
+  origin: 'https://library-management-system-mern-faac.onrender.com/',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials:true,
 }));
