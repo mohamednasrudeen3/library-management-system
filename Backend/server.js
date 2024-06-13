@@ -16,7 +16,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://666add0472ba0f1103f4c7f3--lustrous-kitten-c7214d.netlify.app/',
+  origin: 'https://666ae30e72ba0f1917f4c500--lustrous-kitten-c7214d.netlify.app/',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials:true,
 }));
