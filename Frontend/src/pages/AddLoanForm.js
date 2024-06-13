@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddLoanForm = ({ users, books, onLoanAdded }) => {
+const AddLoanForm = ({ users = [], books = [], onLoanAdded }) => {
   const [userId, setUserId] = useState('');
   const [bookId, setBookId] = useState('');
   const [loanDate, setLoanDate] = useState('');
@@ -14,7 +14,6 @@ const AddLoanForm = ({ users, books, onLoanAdded }) => {
 
     try {
       await axios.post('/api/loans', { userId, bookId, loanDate, dueDate });
-      console.log(userId, bookId, loanDate, dueDate)
       onLoanAdded();
       setUserId('');
       setBookId('');
