@@ -15,11 +15,23 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors({
-  origin: 'https://main--lustrous-kitten-c7214d.netlify.app/login',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials:true,
-}));
+const allowedOrigins = [
+  'https://main--lustrous-kitten-c7214d.netlify.app'
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 // Routes
