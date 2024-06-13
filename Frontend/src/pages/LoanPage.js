@@ -24,6 +24,7 @@ const LoanPage = () => {
         axios.get('/api/books')
       ]);
 
+      console.log('Loans data:', loansResponse.data); // Log the response
       setLoans(loansResponse.data);
       setUsers(usersResponse.data);
       setBooks(booksResponse.data);
@@ -65,12 +66,15 @@ const LoanPage = () => {
     return <p>{error}</p>; // Render error message if fetching data fails
   }
 
+  // Check and log the loans data before mapping
+  console.log('Loans before map:', loans);
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Loans</h1>
       <AddLoanForm users={users} books={books} onLoanAdded={handleLoanAdded} />
       <ul className="space-y-4">
-        {loans.length > 0 ? (
+        {Array.isArray(loans) && loans.length > 0 ? (
           loans.map((loan) => (
             <li key={loan._id} className="bg-white shadow rounded-lg p-4">
               <div>
