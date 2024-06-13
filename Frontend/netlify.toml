@@ -1,5 +1,5 @@
 [[redirects]]
   from = "/api/*"
-  to = "https://library-management-system-mern-faac.onrender.com/:splat"
+  to = "https://library-management-system-mern-faac.onrender.com/api/:splat"
   status = 200
   force = true
