@@ -8,6 +8,7 @@ const BookPage = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [editingBook, setEditingBook] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     fetchBooks();
@@ -16,6 +17,7 @@ const BookPage = () => {
   const fetchBooks = async () => {
     try {
       const { data } = await axios.get('/api/books');
+      console.log('API response:', data); // Log the response to inspect the format
       
       // Check if the response data is an array
       if (Array.isArray(data)) {
@@ -27,11 +29,13 @@ const BookPage = () => {
       } else {
         // Handle the case where data is not an array
         console.error('Unexpected response format: expected an array.');
+        setErrorMessage('Unexpected response format: expected an array.');
         setBooks([]);  // Reset books to an empty array
         setCategories([]);
       }
     } catch (error) {
       console.error('Error fetching books:', error);
+      setErrorMessage('Error fetching books. Please try again later.');
       setBooks([]);  // Ensure books is set to an empty array on error
       setCategories([]);
     }
@@ -52,6 +56,7 @@ const BookPage = () => {
       fetchBooks();
     } catch (error) {
       console.error('Error deleting book:', error);
+      setErrorMessage('Error deleting book. Please try again later.');
     }
   };
 
@@ -66,6 +71,11 @@ const BookPage = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Books</h1>
+      {errorMessage && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+          {errorMessage}
+        </div>
+      )}
       {editingBook ? (
         <UpdateBookForm book={editingBook} onBookUpdated={handleBookUpdated} />
       ) : (
