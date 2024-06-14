@@ -1,5 +1,12 @@
 const Book = require('../models/book');
+const express = require('express');
+const app = express();
 
+// Use Express's built-in JSON middleware to parse JSON bodies
+app.use(express.json());
+
+// Use Express's built-in URL-encoded middleware to parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true }));
 // Add a new book
 exports.addBook = async (req, res) => {
   console.log('Add book request received:', req.body); // Add logging here
