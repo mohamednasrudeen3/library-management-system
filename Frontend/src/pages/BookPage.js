@@ -14,32 +14,32 @@ const BookPage = () => {
     fetchBooks();
   }, []);
 
-  const fetchBooks = async () => {
-    try {
-      const { data } = await axios.get('/api/books');
-      console.log('API response:', data); // Log the response to inspect the format
-      
-      // Check if the response data is an array
-      if (Array.isArray(data)) {
-        setBooks(data);
+ const fetchBooks = async () => {
+  try {
+    const { data } = await axios.get('/api/books');
+    console.log('API response:', data); // Log the response to inspect the format
 
-        // Extract unique categories from books
-        const uniqueCategories = [...new Set(data.map(book => book.category))];
-        setCategories(uniqueCategories);
-      } else {
-        // Handle the case where data is not an array
-        console.error('Unexpected response format: expected an array.');
-        setErrorMessage('Unexpected response format: expected an array.');
-        setBooks([]);  // Reset books to an empty array
-        setCategories([]);
-      }
-    } catch (error) {
-      console.error('Error fetching books:', error);
-      setErrorMessage('Error fetching books. Please try again later.');
-      setBooks([]);  // Ensure books is set to an empty array on error
+    // If the response is an object containing the books array
+    if (data.books && Array.isArray(data.books)) {
+      setBooks(data.books);
+
+      // Extract unique categories from books
+      const uniqueCategories = [...new Set(data.books.map(book => book.category))];
+      setCategories(uniqueCategories);
+    } else {
+      console.error('Unexpected response format: expected an array.');
+      setErrorMessage('Unexpected response format: expected an array.');
+      setBooks([]);  // Reset books to an empty array
       setCategories([]);
     }
-  };
+  } catch (error) {
+    console.error('Error fetching books:', error);
+    setErrorMessage('Error fetching books. Please try again later.');
+    setBooks([]);  // Ensure books is set to an empty array on error
+    setCategories([]);
+  }
+};
+
 
   const handleBookAdded = () => {
     fetchBooks();
