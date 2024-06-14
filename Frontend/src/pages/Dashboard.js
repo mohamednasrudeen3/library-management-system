@@ -32,7 +32,9 @@ useEffect(() => {
         // Something happened in setting up the request that triggered an Error
         console.error('Error in setting up request:', error.message);
       }
-    }
+    } finally {
+        setLoading(false);
+      }
   };
 
   fetchReport();
