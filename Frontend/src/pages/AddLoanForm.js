@@ -8,6 +8,10 @@ const AddLoanForm = ({ users = [], books = [], onLoanAdded }) => {
   const [dueDate, setDueDate] = useState('');
   const [error, setError] = useState('');
 
+  // Log the props to debug the issue
+  console.log('AddLoanForm users:', users);
+  console.log('AddLoanForm books:', books);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -38,9 +42,13 @@ const AddLoanForm = ({ users = [], books = [], onLoanAdded }) => {
           required
         >
           <option value="">Select User</option>
-          {users.map((user) => (
-            <option key={user._id} value={user._id}>{user.name}</option>
-          ))}
+          {Array.isArray(users) && users.length > 0 ? (
+            users.map((user) => (
+              <option key={user._id} value={user._id}>{user.name}</option>
+            ))
+          ) : (
+            <option disabled>No users available</option>
+          )}
         </select>
       </div>
       <div className="mb-4">
@@ -52,9 +60,13 @@ const AddLoanForm = ({ users = [], books = [], onLoanAdded }) => {
           required
         >
           <option value="">Select Book</option>
-          {books.map((book) => (
-            <option key={book._id} value={book._id}>{book.title}</option>
-          ))}
+          {Array.isArray(books) && books.length > 0 ? (
+            books.map((book) => (
+              <option key={book._id} value={book._id}>{book.title}</option>
+            ))
+          ) : (
+            <option disabled>No books available</option>
+          )}
         </select>
       </div>
       <div className="mb-4">
