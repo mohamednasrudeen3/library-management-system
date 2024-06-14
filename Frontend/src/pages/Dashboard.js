@@ -10,21 +10,34 @@ const Dashboard = () => {
   });
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchReport = async () => {
-      try {
-        const { data } = await axios.get('/api/reports/usage');
-        console.log('Report data:', data); // Log the response data
+useEffect(() => {
+  const fetchReport = async () => {
+    try {
+      const { data, status } = await axios.get('/api/reports/usage');
+      if (status === 200) {
+        console.log('Report data:', data);
         setReport(data);
-      } catch (error) {
-        console.error('Error fetching report:', error);
-      } finally {
-        setLoading(false);
+      } else {
+        console.error('Unexpected response status:', status);
       }
-    };
+    } catch (error) {
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error('Server responded with error:', error.response.data);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error('No response received:', error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error('Error in setting up request:', error.message);
+      }
+    }
+  };
 
-    fetchReport();
-  }, []);
+  fetchReport();
+}, []);
+
 
   if (loading) {
     return <p>Loading...</p>;
