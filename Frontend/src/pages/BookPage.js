@@ -14,19 +14,39 @@ const BookPage = () => {
     fetchBooks();
   }, []);
 
- const fetchBooks = async () => {
+  const fetchBooks = async () => {
     try {
       const { data } = await axios.get('/api/books');
-      console.log(data)
-      setBooks(data);
+      console.log('API response:', data); // Log the response to inspect the format
+      
+      // Check if the response data is an array
+      if (Array.isArray(data)) {
+        setBooks(data);
 
-      const uniqueCategories = [...new Set(data.map(book => book.category))];
-      setCategories(uniqueCategories);
+        // Extract unique categories from books
+        const uniqueCategories = [...new Set(data.map(book => book.category))];
+        setCategories(uniqueCategories);
+      } else if (typeof data === 'object' && data.books && Array.isArray(data.books)) {
+        // Handle case where data is an object with a 'books' array
+        setBooks(data.books);
+
+        // Extract unique categories from books
+        const uniqueCategories = [...new Set(data.books.map(book => book.category))];
+        setCategories(uniqueCategories);
+      } else {
+        // Handle unexpected response format
+        console.error('Unexpected response format: expected an array or an object with a "books" array.');
+        setErrorMessage('Unexpected response format: expected an array.');
+        setBooks([]);
+        setCategories([]);
+      }
     } catch (error) {
       console.error('Error fetching books:', error);
+      setErrorMessage('Error fetching books. Please try again later.');
+      setBooks([]);
+      setCategories([]);
     }
   };
-
 
   const handleBookAdded = () => {
     fetchBooks();
