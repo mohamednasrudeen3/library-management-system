@@ -10,7 +10,8 @@ const AddBookForm = ({ onBookAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/books', { title, author, category, stock });
+      // Use full API URL if backend is on a different server
+      await axios.post(`https://main--lustrous-kitten-c7214d.netlify.app/api/books`, { title, author, category, stock });
       onBookAdded();
       setTitle('');
       setAuthor('');
