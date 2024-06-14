@@ -16,12 +16,24 @@ const BookPage = () => {
   const fetchBooks = async () => {
     try {
       const { data } = await axios.get('/api/books');
-      setBooks(data);
+      
+      // Check if the response data is an array
+      if (Array.isArray(data)) {
+        setBooks(data);
 
-      const uniqueCategories = [...new Set(data.map(book => book.category))];
-      setCategories(uniqueCategories);
+        // Extract unique categories from books
+        const uniqueCategories = [...new Set(data.map(book => book.category))];
+        setCategories(uniqueCategories);
+      } else {
+        // Handle the case where data is not an array
+        console.error('Unexpected response format: expected an array.');
+        setBooks([]);  // Reset books to an empty array
+        setCategories([]);
+      }
     } catch (error) {
       console.error('Error fetching books:', error);
+      setBooks([]);  // Ensure books is set to an empty array on error
+      setCategories([]);
     }
   };
 
