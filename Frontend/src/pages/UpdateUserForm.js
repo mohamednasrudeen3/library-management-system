@@ -9,7 +9,7 @@ const UpdateUserForm = ({ user, onUserUpdated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/users/${user._id}`, { name, email, password });
+      await axios.put(`https://library-management-system-mern-faac.onrender.com/api/users/${user._id}`, { name, email, password });
       onUserUpdated();
     } catch (error) {
       console.error('Error updating user:', error);
