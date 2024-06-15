@@ -17,7 +17,7 @@ const AddLoanForm = ({ users = [], books = [], onLoanAdded }) => {
     setError('');
 
     try {
-      await axios.post('/api/loans', { userId, bookId, loanDate, dueDate });
+      await axios.post('https://library-management-system-mern-faac.onrender.com/api/loans', { userId, bookId, loanDate, dueDate });
       onLoanAdded();
       setUserId('');
       setBookId('');
