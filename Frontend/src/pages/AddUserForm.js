@@ -9,7 +9,7 @@ const AddUserForm = ({ onUserAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/users', { name, email, password });
+      await axios.post('https://library-management-system-mern-faac.onrender.com/api/users', { name, email, password });
       onUserAdded();
       setName('');
       setEmail('');
