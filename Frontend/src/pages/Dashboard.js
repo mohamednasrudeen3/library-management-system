@@ -13,7 +13,7 @@ const Dashboard = () => {
 useEffect(() => {
   const fetchReport = async () => {
     try {
-      const { data, status } = await axios.get('/api/reports/usage');
+      const { data, status } = await axios.get('https://library-management-system-mern-faac.onrender.com/api/reports/usage');
       if (status === 200) {
         console.log('Report data:', data);
         setReport(data);
