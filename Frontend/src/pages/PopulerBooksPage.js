@@ -10,7 +10,7 @@ const PopularBooksPage = () => {
 
   const fetchPopularBooks = async () => {
     try {
-      const { data } = await axios.get('/api/inventory/popular');
+      const { data } = await axios.get('https://library-management-system-mern-faac.onrender.com/api/inventory/popular');
       setPopularBooks(data);
     } catch (error) {
       console.error('Error fetching popular books:', error);
