@@ -13,7 +13,7 @@ const InventoryPage = () => {
 
   const fetchBooks = async () => {
     try {
-      const { data } = await axios.get('/api/inventory');
+      const { data } = await axios.get('https://library-management-system-mern-faac.onrender.com/api/inventory');
       setBooks(data);
     } catch (error) {
       console.error('Error fetching books:', error);
@@ -22,7 +22,7 @@ const InventoryPage = () => {
 
   const fetchLowStockBooks = async () => {
     try {
-      const { data } = await axios.get('/api/inventory/low-stock');
+      const { data } = await axios.get('https://library-management-system-mern-faac.onrender.com/api/inventory/low-stock');
       setLowStockBooks(data);
     } catch (error) {
       console.error('Error fetching low stock books:', error);
