@@ -16,7 +16,7 @@ const BookPage = () => {
 
   const fetchBooks = async () => {
     try {
-      const { data } = await axios.get('/api/books');
+      const { data } = await axios.get('https://library-management-system-mern-faac.onrender.com/api/books');
       console.log('API response:', data); // Log the response to inspect the format
       
       // Check if the response data is an array
