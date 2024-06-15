@@ -59,7 +59,7 @@ const BookPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/books/${id}`);
+      await axios.delete(`https://library-management-system-mern-faac.onrender.com/api/books/${id}`);
       fetchBooks();
     } catch (error) {
       console.error('Error deleting book:', error);
