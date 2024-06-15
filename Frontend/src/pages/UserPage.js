@@ -13,7 +13,7 @@ const UserPage = () => {
 
   const fetchUsers = async () => {
     try {
-      const { data } = await axios.get('/api/users');
+      const { data } = await axios.get('https://library-management-system-mern-faac.onrender.com/api/users');
       setUsers(data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -31,7 +31,7 @@ const UserPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/users/${id}`);
+      await axios.delete(`https://library-management-system-mern-faac.onrender.com/api/users/${id}`);
       fetchUsers();
     } catch (error) {
       console.error('Error deleting user:', error);
