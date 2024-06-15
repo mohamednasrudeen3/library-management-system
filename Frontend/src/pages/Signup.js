@@ -12,7 +12,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/auth/signup', { name, email, password });
+      const res = await axios.post('https://library-management-system-mern-faac.onrender.com/api/auth/signup', { name, email, password });
       localStorage.setItem('token', res.data.token);
       navigate('/login');
     } catch (error) {
