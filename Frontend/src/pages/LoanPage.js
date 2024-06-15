@@ -19,9 +19,9 @@ const LoanPage = () => {
 
     try {
       const [loansResponse, usersResponse, booksResponse] = await Promise.all([
-        axios.get('/api/loans'),
-        axios.get('/api/users'),
-        axios.get('/api/books')
+        axios.get('https://library-management-system-mern-faac.onrender.com/api/loans'),
+        axios.get('https://library-management-system-mern-faac.onrender.com/api/users'),
+        axios.get('https://library-management-system-mern-faac.onrender.com/api/books')
       ]);
 
       console.log('Loans data:', loansResponse.data); // Log the response
@@ -42,7 +42,7 @@ const LoanPage = () => {
 
   const handleReturn = async (id) => {
     try {
-      await axios.put(`/api/loans/return/${id}`);
+      await axios.put(`https://library-management-system-mern-faac.onrender.com/api/loans/return/${id}`);
       fetchInitialData(); // Refetch data after returning loan
     } catch (error) {
       console.error('Error returning loan:', error);
@@ -51,7 +51,7 @@ const LoanPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/loans/${id}`);
+      await axios.delete(`https://library-management-system-mern-faac.onrender.com/api/loans/${id}`);
       fetchInitialData(); // Refetch data after deleting loan
     } catch (error) {
       console.error('Error deleting loan:', error);
