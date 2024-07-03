@@ -112,7 +112,7 @@ Welcome to the **Library Internal Management Application** project! This applica
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB, Mongoose
 - **Version Control**: Git, GitHub
-- **Deployment**: [Heroku/AWS] (choose your preferred deployment platform)
+- **Deployment**: [Render/Netlify] (choose your preferred deployment platform)
 - **Security**: JWT, bcrypt for password hashing
 
 ## How to Run the Project
@@ -129,6 +129,10 @@ Welcome to the **Library Internal Management Application** project! This applica
 
 3. **Install Dependencies**:
    ```bash
+   cd Backend
+   npm install
+
+   cd Frontend
    npm install
    ```
 
@@ -141,7 +145,7 @@ Welcome to the **Library Internal Management Application** project! This applica
 
 5. **Run the Backend Server**:
    ```bash
-   npm run server
+   node server.js
    ```
 
 6. **Run the Frontend**:
