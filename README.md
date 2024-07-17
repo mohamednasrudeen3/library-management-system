@@ -1,3 +1,7 @@
+Here’s a day-wise README file for your Library Internal Management Application project, including the tasks and dates:
+
+---
+
 # Library Internal Management Application
 
 Welcome to the **Library Internal Management Application** project! This project was developed during my summer internship at Agevole Innovation Private Limited. It is designed to streamline library operations and enhance user experience. Below is a detailed account of the project's progress and the technologies used.
@@ -14,58 +18,55 @@ The Library Internal Management Application is a web-based application that allo
 
 ## Development Progress
 
-### Week 1: Setting Up and Learning the Basics
+### Week 1: Introduction and Basics
 
-- **Day 1**: Set up the development environment and initialized the project repository on GitHub.
-- **Day 2**: Familiarized myself with version control using GitHub, including creating branches, commits, and pull requests.
-- **Day 3**: Practiced collaboration workflows on GitHub by contributing to open-source projects and managing repositories.
-- **Day 4**: Explored GitHub issues, project boards, and GitHub Actions for CI/CD to streamline project management and deployment.
-- **Day 5**: Created the initial project structure and set up the basic layout for the library management system.
-- **Day 6**: Finalized the development environment setup and prepared for the core development phase.
+- **13/5/24 (Monday)**: Introduction to the company and internship plan.
+- **14/5/24 (Tuesday)**: Started learning frontend development.
+- **15/5/24 (Wednesday)**: Learned React basics.
+- **16/5/24 (Thursday)**: Learned Node.js basics.
+- **17/5/24 (Friday)**: Learned Express.js basics.
 
-### Week 2: Building the Front-End
+### Week 2: Initial Tasks
 
-- **Day 7**: Started with HTML and CSS to create the basic user interface for the library management system.
-- **Day 8**: Developed responsive layouts using CSS flexbox and grid, ensuring the application is accessible on various devices.
-- **Day 9**: Introduced JavaScript for interactivity, focusing on DOM manipulation to handle user interactions.
-- **Day 10**: Created forms and validation logic for adding and managing books and users.
-- **Day 11**: Learned about modern JavaScript features and integrated them into the project.
-- **Day 12**: Explored front-end frameworks and chose React for building dynamic and reusable UI components.
+- **20/5/24 (Monday)**: 
+  - Task 1: Create a Database.
+  - Task 2: Develop the Home page.
+- **21/5/24 (Tuesday)**: 
+  - Task 3: Create the Login Page.
+- **22/5/24 (Wednesday)**: 
+  - Task 3: Continued work on the Login Page.
+- **23/5/24 (Thursday)**: 
+  - Task 4: Develop the Signup Page.
+  - Task 5: Create the Dashboard.
+- **24/5/24 (Friday)**: 
+  - Task 6: Implement the Add Book Form.
 
-### Week 3: Implementing Core Features with React
+### Week 3: Intermediate Tasks
 
-- **Day 13**: Set up the project structure in React and created initial components for the library management system.
-- **Day 14**: Developed the main layout and navigation using React, ensuring a seamless user experience.
-- **Day 15**: Implemented state management in React to handle user actions and data updates.
-- **Day 16**: Integrated React hooks to manage component lifecycle and optimize performance.
-- **Day 17**: Worked on user registration and authentication, allowing users to sign up and log in to the system.
-- **Day 18**: Created components for managing books, including adding, editing, and deleting book entries.
+- **27/5/24 (Monday)**: 
+  - Task 7: Display books by category.
+- **28/5/24 (Tuesday)**: 
+  - Task 7: Continued work on displaying books by category.
+- **29/5/24 (Wednesday)**: 
+  - Task 8: Implement the Delete Book Function.
+  - Task 9: Create the Update Book Form.
+- **30/5/24 (Thursday)**: 
+  - Task 10: Add users form.
+- **31/5/24 (Friday)**: 
+  - Task 11: Display, delete, and update user functionality.
 
-### Week 4: Back-End Development with Node.js and Express
+### Week 4: Advanced Tasks and Finalization
 
-- **Day 19**: Set up the server using Node.js and Express, handling routing and middleware configuration.
-- **Day 20**: Connected the application to a MongoDB database to manage book and user data.
-- **Day 21**: Developed API endpoints for book and user management, ensuring secure and efficient data handling.
-- **Day 22**: Implemented user authentication and authorization using JWT to protect sensitive routes.
-- **Day 23**: Added error handling and validation to the back-end to ensure robust data processing.
-- **Day 24**: Deployed the initial version of the back-end to a cloud service for testing and feedback.
-
-### Week 5: Additional Features and Integrations
-
-- **Day 25**: Developed the loan and return system, managing book lending and returning processes.
-- **Day 26**: Implemented notifications for due dates and overdue books, enhancing user experience.
-- **Day 27**: Added search and filtering functionalities for books and users.
-- **Day 28**: Developed the inventory management system, tracking book stock levels and managing new acquisitions.
-- **Day 29**: Created a reporting module, generating reports on book availability and user activities.
-- **Day 30**: Enhanced the user interface with animations and improved overall user experience.
-
-### Week 6: Finalizing and Optimizing the System
-
-- **Day 31**: Conducted thorough testing of the application, fixing bugs and ensuring all features work as expected.
-- **Day 32**: Implemented security measures, including data encryption and secure API endpoints.
-- **Day 33**: Optimized the performance of the application by caching queries and optimizing database interactions.
-- **Day 34**: Integrated the application with external systems (e.g., school databases, e-book platforms).
-- **Day 35**: Deployed the final version of the application and prepared documentation for users and administrators.
+- **3/6/24 (Monday)**: 
+  - Task 12: Add Loan Form.
+- **5/6/24 (Wednesday)**: 
+  - Task 13: Display, return, and delete loan functionality.
+- **7/6/24 (Friday)**: 
+  - Task 14: Implement Inventory Management.
+  - Task 15: Exporting Loan Data.
+- **10/6/24 (Monday)**: 
+  - Task 15: Continued work on exporting loan data.
+  - Task 16: Create Loan Data CSV.
 
 ## Summary of Technologies and Concepts Learned
 
