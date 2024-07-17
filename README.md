@@ -1,5 +1,3 @@
-Here’s a day-wise README file for your Library Internal Management Application project, including the tasks and dates:
-
 ---
 
 # Library Internal Management Application
