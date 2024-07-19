@@ -80,7 +80,7 @@ The Library Internal Management Application is a web-based application that allo
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/library-management-system.git
+   git clone https://github.com/priyanshu6091/library-management-system.git
    ```
 
 2. **Navigate to the Project Directory**:
