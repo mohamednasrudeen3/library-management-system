@@ -10,7 +10,7 @@ const UpdateBookForm = ({ book, onBookUpdated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://library-management-system-mern-faac.onrender.com/api/books/${book._id}`, { title, author, category, stock });
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/books/${book._id}`, { title, author, category, stock });
       onBookUpdated();
     } catch (error) {
       console.error('Error updating book:', error);

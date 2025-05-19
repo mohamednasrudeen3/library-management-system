@@ -16,7 +16,7 @@ const BookPage = () => {
 
   const fetchBooks = async () => {
     try {
-      const { data } = await axios.get('https://library-management-system-mern-faac.onrender.com/api/books');
+      const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/api/books`);
       console.log('API response:', data); // Log the response to inspect the format
       
       // Check if the response data is an array
@@ -59,7 +59,7 @@ const BookPage = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://library-management-system-mern-faac.onrender.com/api/books/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/books/${id}`);
       fetchBooks();
     } catch (error) {
       console.error('Error deleting book:', error);

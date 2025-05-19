@@ -3,7 +3,7 @@ import React from 'react';
 const ExportData = () => {
   const handleExport = async () => {
     try {
-      const response = await fetch('https://library-management-system-mern-faac.onrender.com/api/exports/loans');
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/exports/loans`);
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');

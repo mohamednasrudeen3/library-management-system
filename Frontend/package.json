@@ -25,7 +25,7 @@
       "react-app/jest"
     ]
   },
-  "proxy": "https://library-management-system-mern-faac.onrender.com/",
+
   "browserslist": {
     "production": [
       ">0.2%",
